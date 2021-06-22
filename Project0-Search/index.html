@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <style>
+            form {
+                text-align:center;
+                padding: 20px;
+            }
+            input {
+                border-radius: 20px;
+                text-align: center;
+                margin: 10px;
+                padding: 5px;
+            }
+            input[type=text]:focus{
+                outline: none;      /* Remove default outline and use border or box-shadow */
+                box-shadow: 0 0 0 2px blue; /* Full freedom. (works also with border-radius) */
+            }
+            /* input[type=text]:-webkit-autofill,
+            input[type=text]:-webkit-autofill:hover,
+            input[type=text]:-webkit-autofill:focus {
+                font-family: Times;
+                color: brown;
+                text-align: center;
+                background-color: green;
+                
+            } */
+
+            #searchbar {
+                width: 50%
+            }
+            #topBar {
+                text-align: right;
+                padding: 20px;
+            }
+            #logo {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="topBar">
+            <a href="imageSearch.html">Images</a>
+            <a href="advancedSearch.html">Advanced</a>
+        </div>
+        
+        <img id="logo" src="GoogleLogo2.png" alt="GoogleLogo">
+
+        <form action="https://google.com/search">
+            <div>
+                <input id="searchbar" type="text" name="q" placeholder="Search Google">
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="Google Search">
+            </div>
+            
+        </form>
+    </body>
+</html>

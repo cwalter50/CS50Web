@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AdvancedSearch</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <style>
+            #logo {
+                display: block;
+                text-align: left;
+                width: 100px;
+            }
+            #header {
+                color:rgb(156, 35, 35); 
+            }
+            #gridHeader {
+                /* font-weight: bold; */
+                font-size: 16px;
+                /* font-family: Arial, Helvetica, sans-serif; */
+                color: black;
+            }
+            #searchbar {
+                width:100%;
+                max-width: 800px;
+                min-width: 300px;
+            }
+            #grid {
+                /* background-color: green; */
+                display: grid;
+                padding: 20px;
+                grid-column-gap: 20px;
+                grid-row-gap: 10px;
+                grid-template-columns: 150px auto 200px;
+            }
+            .grid-item {
+                /* background-color: white; */
+                font-size: 14px;
+                color: gray;
+
+                /* padding: 20px; */
+                text-align: left;
+            }
+            body {
+                padding: 20px;
+            }
+            #searchButton {
+                text-align: right;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="index.html">
+            <img id="logo" src="GoogleLogo2.png" alt="BackToGoogle">
+        </a>
+        <h1 id="header">Advanced Search</h1>
+        <hr>
+        <form action="https://google.com/search">
+            <div id="grid">
+                <div class="grid-item" id="gridHeader">Find pages with...</div>
+                <div class="grid-item"></div>
+                <div class="grid-item" id="gridHeader">To do this in the search box</div>
+                <div class="grid-item">all these words:</div>
+                <div class="grid-item">
+                    <input id="searchbar" type="text" name="as_q" placeholder="all these words">
+                </div>
+                <div class="grid-item">Type the important words: tricolor rat terrier</div>
+                <div class="grid-item">this exact word or phrase:</div>
+                <div class="grid-item">
+                    <input id="searchbar" type="text" name="as_epq" placeholder="this exact word or phrase">
+                </div>
+                <div class="grid-item">Put exact words in quotes: "rat terrior"</div>
+                <div class="grid-item">any of these words:</div>
+                <div class="grid-item">
+                    <input id="searchbar" type="text" name="as_oq" placeholder="any of these words">
+                </div>
+                <div class="grid-item">Type OR between all the words you want: minature OR standard</div>
+                <div class="grid-item">none of these words:</div>
+                <div class="grid-item">
+                    <input id="searchbar" type="text" name="as_eq" placeholder="none of these words">
+                </div>
+                <div class="grid-item">Put a minus sign just before the words you don't want: -rodent, -"Jack Russell"</div>
+            </div> 
+            <hr>
+            <div id="grid">
+                <div class="grid-item"></div>
+                <div class="grid-item">
+                    <input id="searchButton" type="submit" class="btn btn-primary" value="Advanced Search">
+                </div>
+                <div class="grid-item"></div>
+            </div>     
+        </form>
+    </body>
+</html>
