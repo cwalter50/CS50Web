@@ -16,17 +16,17 @@
                     {% csrf_token %}
                     {{form.item}}
                 </form>
-                <form>
+                <!-- <form>
                     <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
-                </form>
+                </form> -->
                 <div>
                     <a href="{% url 'index' %}">Home</a>
                 </div>
                 <div>
-                    Create New Page
+                    <a href="{% url 'create' %}">Create New Page</a>
                 </div>
                 <div>
-                    Random Page
+                    <a href="{% url 'random' %}">Random Page</a>
                 </div>
                 {% block nav %}
                 {% endblock %}
