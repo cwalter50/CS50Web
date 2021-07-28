@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 
 
+
 class User(AbstractUser):
     pass
 
@@ -23,16 +24,27 @@ class Comment(models.Model):
     def __str__(self):
         return f"{self.user}: {self.comment}"
 
+CATEGORIES = (
+    ('a', 'Clothing'),
+    ('b', 'Furniture'),
+    ('c', 'Electronics'),
+    ('d', 'Miscellaneous'),
+    ('e', 'Kitchen'),
+    ('f', 'None'),
+)
+
 class Listing(models.Model):
-    item = models.CharField(max_length=64)
+    title = models.CharField(max_length=64)
     description = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    starting_bid = models.DecimalField(max_digits=10, decimal_places=2)
     time = models.DateTimeField(auto_now_add=True, blank=True)
     owner = models.ForeignKey(User, on_delete=CASCADE, related_name="owner")
     bids = models.ManyToManyField(Bid, blank=True, related_name="bids")
     comments = models.ManyToManyField(Comment, blank=True, related_name="comments")
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(upload_to='images', null=True, blank=True)
     closed = models.BooleanField(default=False)
+    # category = models.CharField(max_length=64, default="NA")
+    category = models.CharField(max_length=25, choices=CATEGORIES, default=CATEGORIES[5][1])
     
     def __str__(self):
-        return f"{self.item}: is {self.price} and is being sold by {self.owner}"
+        return f"{self.title}: is {self.starting_bid} and is being sold by {self.owner}"

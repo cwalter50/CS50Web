@@ -1,0 +1,36 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Listing {{ listing.title }}</h2>
+    {% if listing.closed %}
+        <div class="alert alert-info" role="alert">
+            This listing is no longer available!
+        </div>
+    {% endif %}
+    <div>
+        <img src="{{ listing.image.url }}" alt="image" style="width: 300px; height: auto">
+    </div>
+    <div>
+        <p>{{ listing.description }}</p>
+        <h2>${{ listing.price }}</h2>
+    </div>
+    <div>
+        <h4>Details</h4>
+        <ul>
+          <li>Listed by: {{ listing.owner }}</li>
+          <li>Category: {{ listing.category }}</li>
+          <!-- {% if listing.closed %}
+            <li><strong>Winner: </strong>{{ listing.bids.last.user.username }}</li>
+          {% endif %} -->
+        </ul>
+        <!-- {% if user.username == listing.owner.username and not listing.closed %}
+        <form action="{% url 'listing' listing.id %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" name="button" class="btn btn-danger" value="Close">Close</button>
+        </form>
+        {% endif %} -->
+      </div>
+
+
+{% endblock %}
+
