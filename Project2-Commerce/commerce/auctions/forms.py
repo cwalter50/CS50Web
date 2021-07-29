@@ -8,12 +8,12 @@ class ListingForm(ModelForm):
     fields = ['title', 'starting_bid', 'description', 'category', 'image']
 
 
-# class BidForm(ModelForm):
-#   class Meta:
-#     model = Bid
-#     fields = ["price"]
+class BidForm(ModelForm):
+  class Meta:
+    model = Bid
+    fields = ["price"]
 
-# class CommentForm(ModelForm):
-#   class Meta:
-#     model = Comment
-#     fields = ["title", "comment"]
+class CommentForm(ModelForm):
+  class Meta:
+    model = Comment
+    fields = ['title', 'comment']

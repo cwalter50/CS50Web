@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.deletion import CASCADE
+from decimal import Decimal
 
 
 
@@ -13,7 +14,7 @@ class Bid(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return f"{self.user} put a bid in for {self.price}"
+        return f"{self.user} put a bid in for ${self.price}"
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_comments")
@@ -45,6 +46,14 @@ class Listing(models.Model):
     closed = models.BooleanField(default=False)
     # category = models.CharField(max_length=64, default="NA")
     category = models.CharField(max_length=25, choices=CATEGORIES, default=CATEGORIES[5][1])
-    
+    current_price = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'))
+
     def __str__(self):
-        return f"{self.title}: is {self.starting_bid} and is being sold by {self.owner}"
+        return f"{self.title}: is ${self.starting_bid} and is being sold by {self.owner}"
+
+class Watchlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="watchlist")
+    listings = models.ManyToManyField(Listing, blank=True, related_name="listings")
+
+    def __str__(self):
+        return f"{self.user.username} is watching {self.listings}"
