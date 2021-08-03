@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello</title>
+        <script>
+
+            function hello() {
+                // alert('Hello, world!');
+                // look through document and find first h1 element change its text to 'Goodbye'
+                // document.querySelector('h1').innerHTML = 'Goodbye!';
+                // if (document.querySelector('h1').innerHTML === 'Hello!') {
+                //     // look through document and find first h1 element change its text to 'Goodbye'
+                //     document.querySelector('h1').innerHTML = 'Goodbye!';
+                // } else {
+                //     document.querySelector('h1').innerHTML = 'Hello!';
+                // }
+                const heading = document.querySelector('h1');
+                if (heading.innerHTML === 'Hello!') {
+                    // look through document and find first h1 element change its text to 'Goodbye'
+                    heading.innerHTML = 'Goodbye!';
+                } else {
+                    heading.innerHTML = 'Hello!';
+                }
+
+            }
+            
+        </script>
+    </head>
+    <body>
+       <h1>Hello!</h1> 
+       <button onclick="hello()"> Click Here </button>
+
+    </body>
+</html>
