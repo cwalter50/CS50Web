@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Animate</title>
+        <style>
+            @keyframes grow {
+                from {
+                    font-size: 20px;
+                }
+                to {
+                    font-size: 100px;
+                }
+            }
+
+            @keyframes move {
+                from {
+                    left: 0%;
+                    
+                }
+                to {
+                    left: 50%;
+                }
+            }
+            @keyframes move2 {
+                /* 0% through the animation, far left, 50% through animation 50% from left, 100% through animation back to 0% */
+                0% { 
+                    left: 0%;
+                }
+                50% {
+                    left: 50%;
+                }
+                100% {
+                    left:0%
+                }
+            }
+
+            h1 {
+                position: relative;
+                animation-name: move2;
+                animation-duration: 2s;
+                animation-fill-mode: forwards;
+                /* animation-iteration-count: 2; */
+                animation-iteration-count: infinite;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const h1 = document.querySelector('h1');
+
+                h1.style.animationPlayState = 'paused';
+
+                document.querySelector('button').onclick = () => {
+                    if (h1.style.animationPlayState === 'paused') {
+                        h1.style.animationPlayState = 'running';
+                    } else {
+                        h1.style.animationPlayState = 'paused';
+                    }
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <button>Click Here!</button>
+        <h1>Welcome!</h1>
+
+    </body>
+</html>
